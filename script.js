@@ -35,46 +35,58 @@ function fillShape() {
 function checkWin() {
     // wer hat gewonnen: circle oder cross --> let winner
     let winner;
-    // 1.Zeile                                       // kein undefined übergeben
+    // 1.Zeile                                       // kein undefined übergeben, wenn Array "empty" beinhaltet
     if (field[0] == field[1] && field[1] == field[2] && field[0]) {
         winner = field[0];
+        document.getElementById('line1').classList.remove('d-none');
         document.getElementById('line1').style.transform = 'scale(1)';
     }
     // 2. Zeile
     if (field[3] == field[4] && field[4] == field[5] && field[3]) {
         winner = field[3];
+        document.getElementById('line2').classList.remove('d-none');
         document.getElementById('line2').style.transform = 'scale(1)';
     }
     // 3. Zeile
     if (field[6] == field[7] && field[7] == field[8] && field[6]) {
         winner = field[6];
+        document.getElementById('line3').classList.remove('d-none');
         document.getElementById('line3').style.transform = 'scale(1)';
     }
     // 1. Spalte
     if (field[0] == field[3] && field[3] == field[6] && field[0]) {
         winner = field[0];
+        document.getElementById('line4').classList.remove('d-none');
         document.getElementById('line4').style.transform = 'rotate(90deg) scale(1)';
     }
     // 2. Spalte
     if (field[1] == field[4] && field[4] == field[7] && field[1]) {
         winner = field[1];
+        document.getElementById('line5').classList.remove('d-none');
         document.getElementById('line5').style.transform = 'rotate(90deg) scale(1)';
     }
     // 3. Spalte
     if (field[2] == field[5] && field[5] == field[8] && field[2]) {
         winner = field[2];
+        document.getElementById('line6').classList.remove('d-none');
         document.getElementById('line6').style.transform = 'rotate(90deg) scale(1)';
     }
     //diagonal links/rechts
     if (field[0] == field[4] && field[4] == field[8] && field[0]) {
         winner = field[0];
+        document.getElementById('line7').classList.remove('d-none');
         document.getElementById('line7').style.transform = 'rotate(45deg) scaleX(1)';
     }
     //diagonal rechts/links
     if (field[2] == field[4] && field[4] == field[6] && field[2]) {
         winner = field[2];
+        document.getElementById('line8').classList.remove('d-none');
         document.getElementById('line8').style.transform = 'rotate(-45deg) scaleX(1)';
     }
+    showWinner(winner);
+}
+
+function showWinner(winner) {
     if (winner) {
         gameOver = true;
         let whoWin = document.getElementById('who-win');
@@ -95,7 +107,7 @@ function restart() {
     document.getElementById('who-win').classList.add('d-none');
     document.getElementById('restart-btn').classList.add('d-none');
     
-    for (let i = 1; i < 8; i++) {
+    for (let i = 1; i < 9; i++) {
         document.getElementById('line' + i).classList.add('d-none');
     }
 
