@@ -10,6 +10,9 @@ body {
 .d-none {
     display: none;
 }
+.lines {
+    position: relative;
+}
 
 tr {
     width: 400px;   
