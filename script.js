@@ -1,9 +1,10 @@
 let field = [];
 let currentShape = 'cross';
 let gameOver = false;
+let win_audio = new Audio('sound/win.mp3');
 
 function fillField(id) {
-    // Wenn Feld (Array) leer ist, dann füge cross ODER circle ein
+    // Wenn Feld (Array) leer ist und wenn kein Game-Over ist, dann füge cross ODER circle ein
     if(!field[id] && !gameOver) { 
         if (currentShape == 'cross') {
             currentShape = 'circle';
@@ -76,10 +77,13 @@ function checkWin() {
     }
     if (winner) {
         gameOver = true;
+        let whoWin = document.getElementById('who-win');
         // Game-Over Bild wird nach 1 Sekunde angezeigt
         setTimeout(function() {
-            document.getElementById('game-over').classList.remove('d-none');
+            whoWin.classList.remove('d-none');
+            whoWin.innerHTML = `Gewonnen hat: <div class="winner">${winner}</div>`;
             document.getElementById('restart-btn').classList.remove('d-none');
+            win_audio.play();
         }, 1000);
     }
 }
@@ -88,7 +92,7 @@ function restart() {
     gameOver = false;
     field = [];
 
-    document.getElementById('game-over').classList.add('d-none');
+    document.getElementById('who-win').classList.add('d-none');
     document.getElementById('restart-btn').classList.add('d-none');
     
     for (let i = 1; i < 8; i++) {

@@ -75,8 +75,10 @@ tr td:last-child {
 .horizontal-line {
     position: absolute;
     height: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 355px;
+    background-color: rgb(246, 5, 5);
+    box-shadow: 2px 2px 6px black, -2px -2px 6px black;
+    border-radius: 30px;
+    width: 360px;
     transform: scaleX(0.0);
     transition: transform 225ms ease-in-out;
     z-index: 1;
@@ -91,14 +93,21 @@ tr td:last-child {
     width: 465px;
 }
 
-.game-over-section {
+.win-section {
     position: relative;
 }
-.game-over {
+.who-win {
     position: absolute;
-    top: 45px;
+    top: 103px;
     right: -300px;
     width: 600px;
+    height: 250px;
+    font-size: 69px;
+    line-height: 125px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: rgb(28,20,127);
+    color: white;
     z-index: 2;
     animation: zoom 225ms ease-in-out;
 }
@@ -126,6 +135,7 @@ tr td:last-child {
     background-color: rgb(28,20,127);
     color: white;
     cursor: pointer;
+    border-radius: 20px;
     position: absolute;
     top: 377px;
     z-index: 2;
@@ -135,4 +145,9 @@ tr td:last-child {
 
 .restart-btn:hover {
     background-color: rgb(49, 35, 245);
+}
+
+.winner {
+    color: red;
+    text-shadow: 5px 5px 20px rgb(32, 166, 244), -5px -5px 20px rgb(32, 166, 244);
 }
