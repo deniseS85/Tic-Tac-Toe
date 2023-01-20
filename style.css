@@ -111,4 +111,17 @@ tr td:last-child {
 
 .restart-btn {
     width: 200px;
+    height: 72px;
+    font-size: 30px;
+    font-weight: bold;
+    border: 3px solid silver;
+    background-color: rgb(28,20,127);
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 471px;
+    z-index: 2;}
+
+.restart-btn:hover {
+    background-color: rgb(49, 35, 245);
 }
