@@ -2,25 +2,31 @@ let field = [];
 let currentShape = 'cross';
 
 function fillField(id) {
-    // Abwechslung cross und circle
-    if (currentShape == 'cross') {
-        currentShape = 'circle';
-    } else {
-        currentShape = 'cross';
-    }
+    // Wenn Feld (Array) leer ist, dann füge cross ODER circle ein
+    if(!field[id]) { 
+        if (currentShape == 'cross') {
+            currentShape = 'circle';
+            document.getElementById('player-circle').style.opacity = "1"; 
+            document.getElementById('player-cross').style.opacity = "0.5"; 
+        } else {
+            currentShape = 'cross';
+            document.getElementById('player-cross').style.opacity = "1"; 
+            document.getElementById('player-circle').style.opacity = "0.5";    
+        }
 
-    field[id] = currentShape;
-    fillShape();
-    checkWin();
+        field[id] = currentShape;
+        fillShape();
+        checkWin();
+    }
 }
 
 function fillShape() {
     for (let i = 0; i < field.length; i++) {
         if(field[i] == 'circle') {
-            document.getElementById('circle' + i).classList.remove('d-none');       
+            document.getElementById('circle' + i).classList.remove('d-none');  
         }
         if(field[i] == 'cross') {
-            document.getElementById('cross' + i).classList.remove('d-none');       
+            document.getElementById('cross' + i).classList.remove('d-none');      
         }
     }
 }
