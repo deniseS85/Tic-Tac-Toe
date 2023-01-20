@@ -1,6 +1,7 @@
 let field = [];
 let currentShape = 'Player 2';
 let endGame = false;
+let amountClick = 0;
 let win_audio = new Audio('sound/win.mp3');
 let put_shape = new Audio('sound/putShape.mp3');
 
@@ -26,13 +27,13 @@ function fillShape() {
     for (let i = 0; i < field.length; i++) {
         if(field[i] == 'Player 1') {
             document.getElementById('circle' + i).classList.remove('d-none');
-            put_shape.play();  
         }
         if(field[i] == 'Player 2') {
             document.getElementById('cross' + i).classList.remove('d-none');  
-            put_shape.play();      
         }
     }
+    put_shape.play();
+    amountClick++;
 }
 
 function checkWin() {
@@ -89,47 +90,53 @@ function checkWin() {
     showWinner(winner);
 }
 
-function opacityIfWin() {
+function enableOpacity() {
     for (let i = 1; i < 9; i++) {
         document.getElementById('line' + i).style.opacity = '0.3';
         document.getElementById('table').style.opacity = '0.3';
-        
     }
-    
+    document.getElementById('player-cross').style.opacity = '0.5'; 
+    document.getElementById('player-circle').style.opacity = '0.5';  
+}
+
+function disableOpacity() {
+    for (let i = 1; i < 9; i++) {
+        document.getElementById('line' + i).style.opacity = '1';
+    }
+    document.getElementById('table').style.opacity = '1';
+    document.getElementById('player-circle').style.opacity = '1'; 
+    document.getElementById('player-cross').style.opacity = '0.5';
 }
 
 function showWinner(winner) {
     if (winner) {
-        endGame = true;
-        let whoWin = document.getElementById('who-win');
-        // Game-Over Bild wird nach 1 Sekunde angezeigt
-        setTimeout(function() {
-            whoWin.classList.remove('d-none');
-            whoWin.innerHTML = `Gewonnen hat: <div class="winner">${winner}</div>`;
-            document.getElementById('restart-btn').classList.remove('d-none');
-            win_audio.play();
-            opacityIfWin();
-        }, 1000);
+        showEndGame(`Gewonnen hat: <div class="winner">${winner}</div>`);
+    } else {
+        if (amountClick == 9) {
+            showEndGame('Untentschieden!');
+        }
     }
-   
 }
 
-function draw(winner) {
-    if (field == 9 && !winner) {
-        endGame = true;
-        let whoWin = document.getElementById('who-win');
-        setTimeout(function() {
-            whoWin.classList.remove('d-none');
-            whoWin.innerHTML = 'Unentschieden!';
-            document.getElementById('restart-btn').classList.remove('d-none');
-            win_audio.play();
-        }, 1000);
-    }
+function showEndGame(displayText) {
+    let whoWin = document.getElementById('who-win');
+    endGame = true;
+    // Game-Over Bild wird nach 1 Sekunde angezeigt
+    setTimeout(function() {
+        whoWin.classList.remove('d-none');
+        document.getElementById('restart-btn').classList.remove('d-none');
+        whoWin.innerHTML = displayText;
+        win_audio.play();
+        enableOpacity();
+    }, 1000);
 }
 
 function restart() {
     endGame = false;
     field = [];
+    amountClick = 0;
+    currentShape = 'Player 2';
+    disableOpacity();
 
     document.getElementById('who-win').classList.add('d-none');
     document.getElementById('restart-btn').classList.add('d-none');
