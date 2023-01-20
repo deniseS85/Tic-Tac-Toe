@@ -1,10 +1,13 @@
 body {
     margin: 0;
+    padding: 5px;
     height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .d-none {
@@ -150,4 +153,63 @@ tr td:last-child {
 .winner {
     color: red;
     text-shadow: 5px 5px 20px rgb(32, 166, 244), -5px -5px 20px rgb(32, 166, 244);
+}
+
+@media (min-width: 300px) and (max-width: 375px) {
+    .player {
+        font-size: 12px;
+    }
+    .player img {
+        width: 47px;
+        margin-left: 9px;
+    }
+    .shape {
+        top: 23px;
+        left: 20px;
+        width: 80px;
+        height: 80px;
+    }
+    .who-win {
+        right: -170px;
+        width: 340px;
+        font-size: 46px;
+        line-height: 90px;
+        height: 188px;
+        top: 161px;
+    }
+}
+@media (min-width: 376px) and (max-width: 390px) {
+    .horizontal-line {
+        right: -237px;
+    }
+    .who-win {
+        right: -191px;
+        top: 161px;
+        width: 98vw;
+        font-size: 55px;
+        line-height: 90px;
+        height: 188px;
+    }
+}
+
+@media (min-width: 391px) and (max-width: 414px) {
+    .who-win {
+        right: -195px;
+        width: 391px;
+        font-size: 55px;
+        line-height: 90px;
+        height: 188px;
+        top: 161px;
+    }
+}
+
+@media (min-width: 415px) and (max-width: 599px) {
+    .who-win {
+        top: 120px;
+        right: -195px;
+        width: 390px;
+        height: 229px;
+        font-size: 50px;
+        line-height: 108px;
+    }
 }

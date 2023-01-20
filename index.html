@@ -13,7 +13,6 @@
 <body>
     <div class="win-section">
         <div class="who-win d-none" id="who-win"></div>
-       <!--  <img class="game-over d-none" id="game-over" src="img/game-over.png"> -->
         <button class="restart-btn d-none" id="restart-btn" onclick="restart()">Restart</button>
     </div>
 
@@ -41,7 +40,7 @@
         <div id="line8" class="horizontal-line diagonal d-none" style="right: -232px; top: 189px; transform: rotate(-45deg) scale(0.0);"></div>
     </div>
    
-    <table>
+    <table id="table">
         <tr>
             <td onclick="fillField(0)">
                 <img id="circle0" class="shape d-none" src="img/circle.png">
