@@ -113,7 +113,7 @@ function showWinner(winner) {
         showEndGame(`Gewonnen hat: <div class="winner">${winner}</div>`);
     } else {
         if (amountClick == 9) {
-            showEndGame('Untentschieden!');
+            showEndGame('Unentschieden!');
         }
     }
 }
