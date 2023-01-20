@@ -11,9 +11,10 @@
     <title>Tic Tac Toe</title>
 </head>
 <body>
-
-    <img class="game-over d-none" id="game-over" src="img/game-over.png">
-    <button class="restart-btn d-none" id="restart-btn" onclick="restart()">Restart</button>
+    <div class="game-over-section">
+        <img class="game-over d-none" id="game-over" src="img/game-over.png">
+        <button class="restart-btn d-none" id="restart-btn" onclick="restart()">Restart</button>
+    </div>
 
     <div class="player-section">
         <div id="player-circle" class="player">
@@ -25,6 +26,7 @@
             <img src="img/cross.png">
         </div>
     </div>
+
     <div class="lines">
         <div id="line1" class="horizontal-line " style="right: -176px; top: 58px;"></div>
         <div id="line2" class="horizontal-line " style="right: -176px; top: 189px;"></div>

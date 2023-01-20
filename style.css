@@ -91,11 +91,14 @@ tr td:last-child {
     width: 465px;
 }
 
+.game-over-section {
+    position: relative;
+}
 .game-over {
     position: absolute;
-    top: 125px;
-    right: 355px;
-    width: 50%;;
+    top: 45px;
+    right: -300px;
+    width: 600px;
     z-index: 2;
     animation: zoom 225ms ease-in-out;
 }
@@ -120,13 +123,15 @@ tr td:last-child {
     height: 72px;
     font-size: 30px;
     font-weight: bold;
-    border: 3px solid silver;
     background-color: rgb(28,20,127);
     color: white;
     cursor: pointer;
     position: absolute;
-    top: 552px;
-    z-index: 2;}
+    top: 377px;
+    z-index: 2;
+    border: none;
+    right: -100px;
+}
 
 .restart-btn:hover {
     background-color: rgb(49, 35, 245);
