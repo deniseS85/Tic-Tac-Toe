@@ -12,6 +12,9 @@
 </head>
 <body>
 
+    <img class="game-over d-none" id="game-over" src="img/game-over.png">
+    <button class="restart-btn">Restart</button>
+
     <div class="player-section">
         <div id="player-circle" class="player">
             <div>Player 1</div>
@@ -23,14 +26,16 @@
         </div>
     </div>
 
-    <div class="horizontal-line " style="top: 304px;"></div>
-    <div class="horizontal-line " style="top: 436px;"></div>
-    <div class="horizontal-line" style="top: 566px;"></div>
-    <div class="horizontal-line vertical" style="left: 61px; top:435px;"></div>
-    <div class="horizontal-line vertical" style="left: 194px; top:435px;"></div>
-    <div class="horizontal-line vertical" style="left: 323px; top:435px;"></div>
-    <div class="horizontal-line diagonal" style="top: 433px; transform: rotate(45deg) scaleX(0.0);"></div>
-    <div class="horizontal-line diagonal" style="top: 433px; transform: rotate(-45deg) scale(0.0);"></div>
+    <div id="line1" class="horizontal-line " style="top: 304px;"></div>
+    <div id="line2" class="horizontal-line " style="top: 436px;"></div>
+    <div id="line3" class="horizontal-line" style="top: 566px;"></div>
+    
+    <div id="line4" class="horizontal-line vertical" style="left: 61px; top:435px;"></div>
+    <div id="line5" class="horizontal-line vertical" style="left: 194px; top:435px;"></div>
+    <div id="line6" class="horizontal-line vertical" style="left: 323px; top:435px;"></div>
+
+    <div id="line7" class="horizontal-line diagonal" style="top: 433px; transform: rotate(45deg) scaleX(0.0);"></div>
+    <div id="line8" class="horizontal-line diagonal" style="top: 433px; transform: rotate(-45deg) scale(0.0);"></div>
 
     <table>
         <tr>
